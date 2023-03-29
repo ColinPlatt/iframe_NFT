@@ -1,0 +1,4 @@
+ds-test/=lib/libSVG/lib/ds-test/src/
+forge-std/=lib/forge-std/src/
+libSVG/=lib/libSVG/src/
+openzeppelin-contracts/=lib/libSVG/lib/openzeppelin-contracts/

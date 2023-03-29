@@ -1,0 +1,56 @@
+<svg id ="testsvg"  width="1000" height="500" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <desc>
+    Example script01 - invoke an ECMAScript function from an onclick event
+  </desc>
+  
+  <!-- ECMAScript to change the radius with each click -->
+  <script type="text/javascript">
+    function circle_click( evt ){
+    
+      var circle = evt.target;
+      var currentRadius = circle.getAttribute("r");
+      
+      if( currentRadius == 100 ){
+      
+        circle.setAttribute("r", currentRadius*2);
+      
+      } else {
+      
+        circle.setAttribute("r", currentRadius*0.5);
+      
+      }
+      
+    }
+    
+    function make_shape( evt ){
+	  
+      var svg = document.querySelector('svg');
+      var shape = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      
+      shape.setAttribute("cx", 25);
+      shape.setAttribute("cy", 25);
+      shape.setAttribute("r",  20);
+      shape.setAttribute("style", "fill: green");
+      
+      svg.appendChild( shape );
+      
+    }
+    
+  </script>
+
+  <!-- Outline the drawing area with a blue line -->
+  <rect x="1" y="1" width="900" height="498" fill="none" stroke="blue"/>
+
+  <!-- Act on each click event -->
+  <circle onclick="circle_click(evt)" cx="300" cy="225" r="50" fill="red"/>
+  <!-- Act on each click event -->
+  <circle onclick="make_shape(evt)" cx="500" cy="225" r="50" fill="yellow"/>	  
+  
+  <text x="500" y="380" font-family="Verdana" font-size="35" text-anchor="middle">
+    Click on red circle to change its size.
+  </text> 
+  <text x="500" y="480" font-family="Verdana" font-size="35" text-anchor="middle">
+    Click on yellow circle to add a circle
+  </text>
+  
+</svg>
